@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="797" pageHeight="595" orientation="Landscape" columnWidth="797" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="3fd66a4b-377d-4ac0-8667-73886b557388">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[select * from transaksi_beli]]>
+	</queryString>
+	<field name="ID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Kode_Saham" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Nama_Saham" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Harga_perLot" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Jumlah" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Total_Harga" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Tanggal" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="136" splitType="Stretch">
+			<frame>
+				<reportElement uuid="b9a878e2-badc-4b46-8cb8-ebbd99610815" mode="Opaque" x="0" y="0" width="797" height="132" forecolor="#3366CC" backcolor="#3366CC"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement uuid="be03d27e-a4bc-4910-8982-e6d786d886c1" x="622" y="103" width="144" height="20" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Right">
+						<font fontName="Segoe UI" size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="3db71806-4eb7-4b6f-b51f-048458c837f6" x="2" y="103" width="106" height="20" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Center">
+						<font fontName="Segoe UI" size="13" isBold="true"/>
+					</textElement>
+					<text><![CDATA[TOKO SAHAM]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="18e5c506-5832-4a27-9f76-28d35510d822" style="Title" x="118" y="0" width="679" height="103" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Segoe UI" isBold="true"/>
+					</textElement>
+					<text><![CDATA[LAPORAN PEMBELIAN]]></text>
+				</staticText>
+				<image hAlign="Left" vAlign="Bottom">
+					<reportElement uuid="d7952d94-3f53-4a99-843d-08c2e661e5cb" x="2" y="0" width="116" height="103"/>
+					<imageExpression><![CDATA["D:\\Coding\\Java\\WildanUTS\\src\\image\\logotoko.jpg"]]></imageExpression>
+				</image>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement uuid="88d8bb7e-fbdb-4129-bfd0-a6e5ae4a1863" positionType="FixRelativeToBottom" x="0" y="15" width="802" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="b488ab8b-b333-4c09-a9b4-17025adeb2df" style="Column header" x="0" y="0" width="67" height="15" forecolor="#3366CC"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="14db13f1-ce11-462f-95d6-da1fce482880" style="Column header" x="67" y="0" width="114" height="15" forecolor="#3366CC"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Kode Saham]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="312fe4b2-e23b-4946-b690-e7f3989a5245" style="Column header" x="181" y="0" width="174" height="15" forecolor="#3366CC"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Nama Saham]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e422cc31-7685-49aa-89b6-8851fe1586ce" style="Column header" x="355" y="0" width="114" height="15" forecolor="#3366CC"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Harga/Lot]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="615c1407-3493-4ea6-b4ff-d52d9969c5af" style="Column header" x="469" y="0" width="76" height="15" forecolor="#3366CC"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Jumlah]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f4025be1-4d9a-40f8-b2e9-1b21eea1fd07" style="Column header" x="545" y="0" width="139" height="15" forecolor="#3366CC"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Total Harga]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4036bea2-4f91-4d06-b8fd-a8daeb3567d8" style="Column header" x="684" y="0" width="114" height="15" forecolor="#3366CC"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Tanggal]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<frame>
+				<reportElement uuid="0cb8521e-ab92-495b-bbeb-8a9d44d750f5" style="Row" mode="Opaque" x="0" y="0" width="797" height="15"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="8719f9af-0cab-4426-a63e-84a215d1ab1f" style="Detail" x="0" y="0" width="67" height="15" forecolor="#3366CC"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{ID}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="718eb756-2bd3-466a-a704-4395c87c4aa5" style="Detail" x="67" y="0" width="114" height="15" forecolor="#3366CC"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{Kode_Saham}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="10121b10-5d0a-4732-a222-90d5f759801d" style="Detail" x="181" y="0" width="174" height="15" forecolor="#3366CC"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{Nama_Saham}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="8d5b507c-879a-4e59-85fd-dc82db32774f" style="Detail" x="355" y="0" width="114" height="15" forecolor="#3366CC"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{Harga_perLot}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="aeec699e-ceee-4f42-8f6c-72e03b009935" style="Detail" x="469" y="0" width="76" height="15" forecolor="#3366CC"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{Jumlah}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="1e0e6524-004f-42c1-a984-707037f5bf88" style="Detail" x="545" y="0" width="139" height="15" forecolor="#3366CC"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{Total_Harga}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="dd MMMMM yyyy">
+					<reportElement uuid="428167ec-5dd7-4ba4-b430-1a1165e0e79e" style="Detail" x="683" y="0" width="114" height="15" forecolor="#3366CC"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{Tanggal}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="6" splitType="Stretch">
+			<line>
+				<reportElement uuid="e1b3fde9-77e2-4ff0-87b4-013ee6b2d009" positionType="FixRelativeToBottom" x="0" y="3" width="802" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement uuid="ea222a96-f6b3-4a54-b7b0-a2aba1fccc87" mode="Opaque" x="0" y="1" width="797" height="24" forecolor="#3366CC" backcolor="#3366CC"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement uuid="b7e590d3-4d5f-42f2-b1e8-fd79b5d0ead9" style="Column header" x="22" y="1" width="197" height="20" forecolor="#FFFFFF"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

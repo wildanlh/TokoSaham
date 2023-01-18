@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="500" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="9a36b25a-6e0a-4fca-a311-6d68cebc4dca">
+	<property name="template.type" value="columnar"/>
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="35"/>
+	<style name="Title" forecolor="#000000" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="total" class="java.lang.String"/>
+	<parameter name="jual" class="java.lang.String"/>
+	<parameter name="profit" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[select * from penjualan]]>
+	</queryString>
+	<field name="ID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Kode_Saham" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Nama_Saham" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Harga_perLot" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Jumlah" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Total_Harga" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Tanggal" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="132" splitType="Stretch">
+			<frame>
+				<reportElement uuid="b9a878e2-badc-4b46-8cb8-ebbd99610815" mode="Opaque" x="0" y="0" width="595" height="132" forecolor="#000000" backcolor="#FFFFFF"/>
+				<staticText>
+					<reportElement uuid="3db71806-4eb7-4b6f-b51f-048458c837f6" x="479" y="103" width="105" height="20" forecolor="#3366CC"/>
+					<textElement textAlignment="Center">
+						<font fontName="Segoe UI" size="13" isBold="true"/>
+					</textElement>
+					<text><![CDATA[TOKO SAHAM]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="18e5c506-5832-4a27-9f76-28d35510d822" style="Title" x="17" y="0" width="578" height="103" forecolor="#3366CC"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="Segoe UI" isBold="true"/>
+					</textElement>
+					<text><![CDATA[STRUK TRANSAKSI]]></text>
+				</staticText>
+				<image hAlign="Left" vAlign="Bottom">
+					<reportElement uuid="d7952d94-3f53-4a99-843d-08c2e661e5cb" x="479" y="0" width="116" height="103"/>
+					<imageExpression><![CDATA["D:\\Coding\\Java\\WildanUTS\\src\\image\\logotoko.jpg"]]></imageExpression>
+				</image>
+				<staticText>
+					<reportElement uuid="3db71806-4eb7-4b6f-b51f-048458c837f6" x="17" y="83" width="147" height="20" forecolor="#3366CC"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="Segoe UI" size="13" isBold="true"/>
+					</textElement>
+					<text><![CDATA[PENJUALAN SAHAM]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="130" splitType="Stretch">
+			<line>
+				<reportElement uuid="eda823f8-6a54-45dc-816b-caff4de794b4" positionType="FixRelativeToBottom" x="0" y="0" width="595" height="1" forecolor="#3366CC"/>
+			</line>
+			<staticText>
+				<reportElement uuid="1144b7de-a4ca-41ef-9b0d-24dcee2566a3" style="Column header" positionType="Float" x="17" y="9" width="132" height="20" forecolor="#3366CC"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Roboto" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="78cdff55-6744-4583-a36e-37d83f2ff30d" style="Detail" positionType="Float" x="164" y="11" width="338" height="18" forecolor="#3366CC"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Roboto" size="13" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ID}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="52bb2c4f-de46-4ba4-b487-3321c43fc641" style="Column header" positionType="Float" x="17" y="29" width="132" height="20" forecolor="#3366CC"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Roboto" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Kode Saham]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="ab4ae08e-6f50-4fa6-84e5-f57fb5e6dadb" style="Detail" positionType="Float" x="164" y="31" width="338" height="18" forecolor="#3366CC"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Roboto" size="13" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Kode_Saham}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="55f2875a-688b-4714-bf56-983c4b680a10" style="Column header" positionType="Float" x="17" y="49" width="132" height="20" forecolor="#3366CC"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Roboto" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Nama Saham]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="d6863db0-b91d-4ead-aeee-7ee603c3a5c8" style="Detail" positionType="Float" x="164" y="51" width="338" height="18" forecolor="#3366CC"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Roboto" size="13" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Nama_Saham}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="0b01cef3-a816-4008-88f8-3691e709a7b5" style="Column header" positionType="Float" x="17" y="69" width="132" height="20" forecolor="#3366CC"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Roboto" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Harga/Lot]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="684762de-4bd7-46f6-9f1e-ec8926938d40" style="Detail" positionType="Float" x="164" y="71" width="338" height="18" forecolor="#3366CC"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Roboto" size="13" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Harga_perLot}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="8e902c3f-c209-403f-951f-0250fe9181ef" style="Column header" positionType="Float" x="17" y="89" width="132" height="20" forecolor="#3366CC"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Roboto" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Jumlah]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="da55caec-8570-486d-bcc2-0f72ff9346c3" style="Detail" positionType="Float" x="164" y="91" width="338" height="18" forecolor="#3366CC"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Roboto" size="13" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Jumlah}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="c047211b-a4bc-4e0f-b36f-9963d426af26" style="Column header" positionType="Float" x="17" y="109" width="132" height="20" forecolor="#3366CC"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Roboto" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="288597b5-cdc4-4818-9254-127e849e079b" style="Detail" positionType="Float" x="164" y="111" width="338" height="18" forecolor="#3366CC"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Roboto" size="13" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Total_Harga}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="1144b7de-a4ca-41ef-9b0d-24dcee2566a3" style="Column header" positionType="Float" x="149" y="9" width="15" height="20" forecolor="#3366CC"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Roboto" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1144b7de-a4ca-41ef-9b0d-24dcee2566a3" style="Column header" positionType="Float" x="149" y="29" width="15" height="20" forecolor="#3366CC"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Roboto" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1144b7de-a4ca-41ef-9b0d-24dcee2566a3" style="Column header" positionType="Float" x="149" y="49" width="15" height="20" forecolor="#3366CC"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Roboto" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1144b7de-a4ca-41ef-9b0d-24dcee2566a3" style="Column header" positionType="Float" x="149" y="69" width="15" height="20" forecolor="#3366CC"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Roboto" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1144b7de-a4ca-41ef-9b0d-24dcee2566a3" style="Column header" positionType="Float" x="149" y="89" width="15" height="20" forecolor="#3366CC"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Roboto" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1144b7de-a4ca-41ef-9b0d-24dcee2566a3" style="Column header" positionType="Float" x="149" y="109" width="15" height="20" forecolor="#3366CC"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Roboto" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="be03d27e-a4bc-4910-8982-e6d786d886c1" x="440" y="9" width="144" height="20" forecolor="#3366CC"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Segoe UI" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="75" splitType="Stretch">
+			<line>
+				<reportElement uuid="cab48fbf-73c8-44e7-9d4b-f1efe2130149" positionType="FixRelativeToBottom" x="0" y="3" width="595" height="1" forecolor="#3366CC"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="1144b7de-a4ca-41ef-9b0d-24dcee2566a3" style="Column header" positionType="Float" x="298" y="11" width="99" height="20" forecolor="#3366CC"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Roboto" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Total Harga]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1144b7de-a4ca-41ef-9b0d-24dcee2566a3" style="Column header" positionType="Float" x="298" y="31" width="99" height="20" forecolor="#3366CC"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Roboto" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Harga Jual]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1144b7de-a4ca-41ef-9b0d-24dcee2566a3" style="Column header" positionType="Float" x="298" y="51" width="99" height="20" forecolor="#3366CC"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Roboto" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Profit]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1144b7de-a4ca-41ef-9b0d-24dcee2566a3" style="Column header" positionType="Float" x="397" y="11" width="15" height="20" forecolor="#3366CC"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Roboto" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1144b7de-a4ca-41ef-9b0d-24dcee2566a3" style="Column header" positionType="Float" x="397" y="31" width="15" height="20" forecolor="#3366CC"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Roboto" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1144b7de-a4ca-41ef-9b0d-24dcee2566a3" style="Column header" positionType="Float" x="397" y="51" width="15" height="20" forecolor="#3366CC"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Roboto" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="db5d80a5-e6ad-44a7-8419-94ed2e0fb352" x="412" y="11" width="100" height="20" forecolor="#3366CC"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Roboto" size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="896aa111-addc-480c-92de-48793e0399b9" x="412" y="31" width="100" height="20" forecolor="#3366CC"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Roboto" size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{jual}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="3a4856b4-f27b-4f6f-983c-20e3a1971ebe" x="412" y="51" width="100" height="20" forecolor="#3366CC"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Roboto" size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{profit}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="13" splitType="Stretch">
+			<frame>
+				<reportElement uuid="361cacc4-180e-4546-9abf-031a630126f4" mode="Opaque" x="0" y="0" width="595" height="13" forecolor="#D0B48E" backcolor="#3366CC"/>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

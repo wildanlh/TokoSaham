@@ -1,0 +1,1 @@
+Import this aplikasi_penjual.sql on XAMPP

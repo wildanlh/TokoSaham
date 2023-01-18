@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="250" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="247202e8-be62-4124-8f3b-2b55c6943da9">
+	<property name="template.type" value="columnar"/>
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#000000" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="nama" class="java.lang.String"/>
+	<parameter name="email" class="java.lang.String"/>
+	<parameter name="user" class="java.lang.String"/>
+	<parameter name="password" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[select * from login]]>
+	</queryString>
+	<field name="Nama" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Email" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Username" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Password" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<title>
+		<band height="132" splitType="Stretch">
+			<frame>
+				<reportElement uuid="b9a878e2-badc-4b46-8cb8-ebbd99610815" mode="Opaque" x="0" y="0" width="595" height="132" forecolor="#000000" backcolor="#3366CC"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement uuid="be03d27e-a4bc-4910-8982-e6d786d886c1" x="396" y="103" width="144" height="20" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Right">
+						<font fontName="Segoe UI" size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="3db71806-4eb7-4b6f-b51f-048458c837f6" x="0" y="103" width="105" height="20" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Center">
+						<font fontName="Segoe UI" size="13" isBold="true"/>
+					</textElement>
+					<text><![CDATA[TOKO SAHAM]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="18e5c506-5832-4a27-9f76-28d35510d822" style="Title" x="118" y="0" width="477" height="103" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Segoe UI" isBold="true"/>
+					</textElement>
+					<text><![CDATA[AKUN]]></text>
+				</staticText>
+				<image hAlign="Left" vAlign="Bottom">
+					<reportElement uuid="d7952d94-3f53-4a99-843d-08c2e661e5cb" x="2" y="0" width="116" height="103"/>
+					<imageExpression><![CDATA["D:\\Coding\\Java\\WildanUTS\\src\\image\\logotoko.jpg"]]></imageExpression>
+				</image>
+			</frame>
+		</band>
+	</title>
+	<detail>
+		<band height="91" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="cc4d225f-f007-4fa9-8801-d2ed0ac0f113" style="Column header" positionType="Float" x="79" y="0" width="132" height="23" forecolor="#3366CC"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Segoe UI" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Nama]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="53b42b6c-bc13-41a8-a7d9-83a5e4c088fe" style="Column header" positionType="Float" x="79" y="23" width="132" height="23" forecolor="#3366CC"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Segoe UI" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Email]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="50a93246-7a1b-41e0-b7ca-f9ecbb493f3c" style="Column header" positionType="Float" x="79" y="46" width="132" height="23" forecolor="#3366CC"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Segoe UI" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Username]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c943a1fd-3be6-4bd7-9372-ead75e7757b6" style="Column header" positionType="Float" x="79" y="68" width="132" height="23" forecolor="#3366CC"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Segoe UI" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Password]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="e1fcc644-ae31-43b5-9f56-37306e3a98d0" x="235" y="0" width="318" height="23" forecolor="#3366CC"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nama}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="125a94db-80b4-49b5-a95f-5052c16d1bea" x="235" y="23" width="318" height="23" forecolor="#3366CC"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{email}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ced94fbb-9436-4012-90d0-262c6e2f65fe" x="235" y="46" width="318" height="23" forecolor="#3366CC"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{user}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="6539c895-4c74-4451-bc9e-9bad1bccc7f7" x="235" y="68" width="318" height="23" forecolor="#3366CC"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{password}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="17" splitType="Stretch">
+			<frame>
+				<reportElement uuid="851603d0-4236-4063-93ca-8ada4fb2eaf4" mode="Opaque" x="0" y="0" width="595" height="17" forecolor="#D0B48E" backcolor="#3366CC"/>
+				<staticText>
+					<reportElement uuid="3db71806-4eb7-4b6f-b51f-048458c837f6" x="2" y="0" width="593" height="17" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Center">
+						<font fontName="Segoe UI" size="11" isBold="true"/>
+					</textElement>
+					<text><![CDATA[USERNAME DAN PASSWORD JANGAN SAMPAI LUPA!]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</pageFooter>
+</jasperReport>
