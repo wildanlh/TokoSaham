@@ -1,1 +1,1 @@
-Import this aplikasi_penjual.sql on XAMPP
+Import this aplikasi_penjual.sql on MySQL
